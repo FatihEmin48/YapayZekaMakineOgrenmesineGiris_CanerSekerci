@@ -1,0 +1,1 @@
+# YapayZekaMakineOgrenmesineGiris_CanerSekerci
