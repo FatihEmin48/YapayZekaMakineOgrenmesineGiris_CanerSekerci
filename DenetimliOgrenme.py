@@ -26,15 +26,24 @@ Y = iris.target
 
 
 #Splitting X and Y into Training and Testing sets
-
 X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size=0.3, random_state=1)
 
 dt = DecisionTreeClassifier(random_state=0)
 dt.fit(X_train, Y_train)
 dt_pred = dt.predict(X_test)
 
-
 print("Accuracy Score of DT Classifier: ", accuracy_score(Y_test, dt_pred))
 print("\nPrecision Score of DT Classifier: ", precision_score(Y_test, dt_pred, average="weighted"))
 print("\nRecall Score of DT Classifier: ", recall_score(Y_test, dt_pred, average="weighted"))
 print("\nF1 Score of DT Classifier: ", f1_score(Y_test, dt_pred, average="weighted"))
+
+
+
+svm_clf = svm.SVC(kernel="linear")
+svm_clf.fit(X_train, Y_train)
+svm_clf_pred = svm_clf.predict(X_test)
+
+print("\n\nAccuracy Score of SVM: ", accuracy_score(Y_test, svm_clf_pred))
+print("\nPrecision  Score of SVM: ", precision_score(Y_test, svm_clf_pred, average="weighted"))
+print("\nRecall Score of SVM: ", recall_score(Y_test, svm_clf_pred, average="weighted"))
+print("\nF1 Score of SVM: ", f1_score(Y_test, svm_clf_pred, average="weighted"
